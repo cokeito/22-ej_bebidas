@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bebidas</title>
+
+	<script>
+		
+		
+
+		function Persona(name, age, drink) {
+
+			    this.name 	= name;
+			    this.age 	= age;
+			    this.drunk	= 0;
+			    this.sorbos	= 0;
+			    this.drink 	= function(obj) {
+
+				    if (this.sorbos < 30) {
+				    	if (obj.sorbos > 0) {
+
+					    	if (this.age >= 18 && obj.alcohol === true) {
+					    		
+					    		if (this.drunk < 25){
+						    		
+						    		if (this.drunk > 15 ) {
+						    			console.log(this.name+ ' esta ebrio ('+this.drunk+') tragos');
+						    		}
+
+						    		obj.drink();
+						    		this.drunk++;
+
+						    		this.sorbos++;
+						    		console.log('<OK> '+this.name+' ha bebido una sorbo de bebida alcoholica correctamente, lleva ('+this.drunk+') bebidas alcoholicas y un total de ('+this.sorbos+') sorbos');
+
+					    		} else {
+					    			console.log(this.name+' ya esta borracho ('+this.drunk+') tragos');
+					    		}
+					    		
+					    	}
+
+					    	if (this.age < 18 && obj.alcohol === true) {
+					    		console.log('<!> '+this.name+' ha tratado de beber un sorbo de bebida alcoholica!');
+					    	}
+
+					    	if (obj.alcohol === false) {
+					    		this.sorbos++;
+					    		obj.drink();
+					    		console.log('<OK> '+this.name+' ha bebido un sorbo de  bebida correctamente, lleva ('+this.drunk+') sorbos de  bebidas alcoholicas y un total de ('+this.sorbos+') sorbos');
+					    	}
+				    	} else {
+				    		console.log('<!> Esta bebida esta vacia');
+				    	}
+				    } else {
+				    		console.log('<!> '+ this.name+ ' no puede tomar más!, ya ha tomado ('+this.sorbos+') sorbos en total!');
+				    }
+			    };
+		}
+
+		function Bebida(alcohol,sorbos) {
+				this.alcohol 	= alcohol;
+				this.sorbos		= sorbos;
+				this.drink	= function() {
+					this.sorbos--;
+				};
+
+		}
+
+		var domitila 	= new Persona('Domitila', 17);
+		var toribio  	= new Persona('Toribio', 21);
+
+		var cocacola	= new Bebida(false,10);
+		var fanta		= new Bebida(false,10);
+		var sprite		= new Bebida(false,10);
+		var bilz		= new Bebida(false,10);
+
+		var whisky		= new Bebida(true,10);
+		var gin			= new Bebida(true,10);
+		var vodka		= new Bebida(true,10);
+
+		/* casos de pruebas 
+
+		toribio.drink(cocacola)
+		toribio.drink(whisky)
+		toribio.drink(gin)
+		toribio.drink(vodka)
+
+		domitila.drink(cocacola)
+		domitila.drink(whisky)
+		domitila.drink(gin)
+		domitila.drink(vodka)
+
+
+		*/
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
